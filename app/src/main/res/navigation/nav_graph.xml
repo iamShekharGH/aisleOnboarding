@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentEnterMobile">
+
+    <fragment
+        android:id="@+id/fragmentEnterOtp"
+        android:name="com.example.myapplication.ui.enterOtp.FragmentEnterOtp"
+        android:label="fragment_enter_otp"
+        tools:layout="@layout/fragment_enter_otp">
+        <argument
+            android:name="mobileNo"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_fragmentEnterOtp_to_fragmentEnterMobile"
+            app:destination="@id/fragmentEnterMobile" />
+        <action
+            android:id="@+id/action_fragmentEnterOtp_to_fragmentProfile"
+            app:destination="@id/fragmentProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentProfile"
+        android:name="com.example.myapplication.ui.profile.FragmentProfile"
+        android:label="fragment_test_profile_list"
+        tools:layout="@layout/fragment_test_profile_list" >
+        <argument
+            android:name="profileResponse"
+            app:argType="com.example.myapplication.network.modelResponse.responseProfile.ResponseProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentEnterMobile"
+        android:name="com.example.myapplication.ui.enterMobile.FragmentEnterMobile"
+        android:label="fragment_enter_mobile"
+        tools:layout="@layout/fragment_enter_mobile">
+        <action
+            android:id="@+id/action_fragmentEnterMobile_to_fragmentEnterOtp"
+            app:destination="@id/fragmentEnterOtp" />
+    </fragment>
+</navigation>
